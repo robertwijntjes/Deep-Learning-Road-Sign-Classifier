@@ -2,6 +2,7 @@ import os,sys
 from os import listdir
 from os.path import isfile, join
 from sklearn.externals import joblib
+import re
 
 
 
@@ -30,3 +31,15 @@ def line_read_model( files ):
 
 
 def string_parser( string_item ):
+    line_ = []
+    x = []
+    raw_line_ = os.path.splitext(string_item)[0]
+    regex = re.compile('[^a-zA-Z]')
+
+    for i in raw_line_:
+        line_ += regex.sub('', str(i))
+
+    x = ''.join(line_)
+
+    print(x)
+    return (x)

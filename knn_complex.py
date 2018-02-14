@@ -62,6 +62,7 @@ for a,i in enumerate(sys.argv):
     joblib.dump(model, './models/'+ str(a) + '.pkl')
     # Creates Models for Classification
 
+    x = line_reader.string_parser(str(i))
 
 for i in results:
     print (i)
