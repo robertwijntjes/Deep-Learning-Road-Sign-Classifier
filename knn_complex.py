@@ -59,10 +59,12 @@ for a,i in enumerate(sys.argv):
     results.append('MLP HSV Accuracy '+ str(i) + ': ' + str(100 * acc) + '%')
     # Creates Results data
 
-    joblib.dump(model, './models/'+ str(a) + '.pkl')
+    x = line_reader.file_parser(str(i))
+    # Parses filename and fixes non-alpha chars
+
+    joblib.dump(model, str(x) )
     # Creates Models for Classification
 
-    x = line_reader.string_parser(str(i))
 
 for i in results:
     print (i)

@@ -43,3 +43,20 @@ def string_parser( string_item ):
 
     print(x)
     return (x)
+
+
+
+
+def file_parser( string_item ):
+    line_ = []
+    x = []
+    raw_line_ = os.path.splitext(string_item)[0]
+    regex = re.compile('[^a-zA-Z]')
+
+    for i in raw_line_:
+        line_ += regex.sub('', str(i))
+
+    x = ''.join(line_)
+    z = './models/' + x + '.pkl'
+    print(z)
+    return (z)
