@@ -30,16 +30,17 @@ results = []
 
 del sys.argv[0]
 # Dynamic model creation
-print(sys.argv)
 
+print('\n\n')
 # Features and Labels array
 for a,i in enumerate(sys.argv):
-    print(str(i))
+    print('Current Model: ' + str(i))
     file_ = open(str(i),'r+')
     # Reads the files based on parameters given in command line
 
     imagePaths = line_reader.line_reader(file_)
     # Read Paths from directory files
+
 
     (features,labels) = calculate_vector.calculate_vectors(imagePaths)
     # Calculate Vectors from Paths

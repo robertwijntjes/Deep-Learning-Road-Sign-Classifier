@@ -4,7 +4,6 @@ import cv2
 import os,sys
 from os import listdir
 from os.path import isfile, join
-import color_transform
 
 
 
@@ -15,12 +14,12 @@ def calculate_vectors( array_file ):
 
     print('Begin Loading Images')
     for i , imagePath in enumerate( array_file ):
-        print('-- Loading Images --')
+        #print('-- Loading Images --')
         path = cv2.imread(imagePath)
         label = imagePath.split(os.path.sep)[-1].split('/')[1]
         # Read in Image Paths i
 
-        conv = (8,8,8)
+        conv = ( 8 , 8 , 8 )
         hist = cv2.calcHist([path], [0, 1, 2], None, conv,[0, 180, 0, 256, 0, 256])
         hist = cv2.normalize(hist,hist)
 

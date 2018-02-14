@@ -15,7 +15,7 @@ imgData = []
 features = []
 paths = []
 
-del sys.argv[0]
+#del sys.argv[0]
 
 f = easygui.fileopenbox()
 I = cv2.imread(f)
@@ -25,10 +25,11 @@ features = calculate_vector.calculate_single_path_v(I)
 # Calculate and Transform Image
 
 
-paths = line_reader.line_read_model(sys.argv[0])
+paths = line_reader.line_read_model(sys.argv[1])
 # Reads in Models from
 
-#model_t1 = joblib.load('./models/0.pkl')
-#model_t2 = joblib.load('mlp_model.pkl')
-#pred = model_t1.predict(features)
-#print(pred)
+for a,i in enumerate(paths):
+    pred = i.predict(features)
+    
+    print('Round ' + str(a) + ':')
+    print(pred)

@@ -3,6 +3,7 @@ from os import listdir
 from os.path import isfile, join
 from sklearn.externals import joblib
 import re
+import pathlib
 
 
 
@@ -41,8 +42,7 @@ def string_parser( string_item ):
 
     x = ''.join(line_)
 
-    print(x)
-    return (x)
+    return ( x )
 
 
 
@@ -53,10 +53,13 @@ def file_parser( string_item , pos ):
     raw_line_ = os.path.splitext(string_item)[0]
     regex = re.compile('[^a-zA-Z]')
 
+    if not os.path.exists('./models'):
+        os.makedirs('models')
+
     for i in raw_line_:
         line_ += regex.sub('', str(i))
 
     x = ''.join(line_)
     z = './models/' + str(pos + 1)+ '_' + x + '.pkl'
-    print(z)
-    return (z)
+
+    return ( z )
