@@ -1,0 +1,3 @@
+./mand_sign/
+./reg_sign/
+./warn_sign/
