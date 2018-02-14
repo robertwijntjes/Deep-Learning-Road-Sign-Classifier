@@ -59,7 +59,7 @@ for a,i in enumerate(sys.argv):
     results.append('MLP HSV Accuracy '+ str(i) + ': ' + str(100 * acc) + '%')
     # Creates Results data
 
-    x = line_reader.file_parser(str(i))
+    x = line_reader.file_parser(str(i) , a)
     # Parses filename and fixes non-alpha chars
 
     joblib.dump(model, str(x) )

@@ -47,7 +47,7 @@ def string_parser( string_item ):
 
 
 
-def file_parser( string_item ):
+def file_parser( string_item , pos ):
     line_ = []
     x = []
     raw_line_ = os.path.splitext(string_item)[0]
@@ -57,6 +57,6 @@ def file_parser( string_item ):
         line_ += regex.sub('', str(i))
 
     x = ''.join(line_)
-    z = './models/' + x + '.pkl'
+    z = './models/' + str(pos + 1)+ '_' + x + '.pkl'
     print(z)
     return (z)
