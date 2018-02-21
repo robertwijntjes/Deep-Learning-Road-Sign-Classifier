@@ -9,11 +9,13 @@ import easygui
 import calculate_vector
 import line_reader
 import os,sys
+import tree_mapper
 
 
 imgData = []
 features = []
 paths = []
+config = []
 
 #del sys.argv[0]
 
@@ -28,8 +30,13 @@ features = calculate_vector.calculate_single_path_v(I)
 paths = line_reader.line_read_model(sys.argv[1])
 # Reads in Models from
 
+config = tree_mapper.tree_mapper()
+# Reads the Config setup for the classifier stages
+
+print(config)
+
 for a,i in enumerate(paths):
     pred = i.predict(features)
-    
-    print('Round ' + str(a) + ':')
-    print(pred)
+
+    #print('Round ' + str(a) + ':')
+    #print(pred)

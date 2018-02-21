@@ -1,3 +1,6 @@
 root: 1_all_sign 1_no_sign
 1_no_sign:
 1_all_sign: 2_warn_sign 2_reg_sign 2_mand_sign
+2_warn_sign: a b c
+2_reg_sign: d e f
+2_mand_sign: z x y
