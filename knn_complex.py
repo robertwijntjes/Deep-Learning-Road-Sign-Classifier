@@ -35,7 +35,12 @@ print('\n\n')
 # Features and Labels array
 for a,i in enumerate(sys.argv):
     print('Current Model: ' + str(i))
-    file_ = open(str(i),'r+')
+
+    try:
+        file_ = open(str(i),'r+')
+    except WindowsError, e:
+        print "error"
+
     # Reads the files based on parameters given in command line
 
     imagePaths = line_reader.line_reader(file_)
@@ -65,7 +70,6 @@ for a,i in enumerate(sys.argv):
 
     joblib.dump(model, str(x) )
     # Creates Models for Classification
-
 
 for i in results:
     print (i)

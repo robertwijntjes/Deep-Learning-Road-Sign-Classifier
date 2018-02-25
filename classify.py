@@ -16,6 +16,7 @@ imgData = []
 features = []
 paths = []
 config = []
+file_names = []
 
 #del sys.argv[0]
 
@@ -27,16 +28,23 @@ features = calculate_vector.calculate_single_path_v(I)
 # Calculate and Transform Image
 
 
-paths = line_reader.line_read_model(sys.argv[1])
+paths, file_names = line_reader.line_read_model(sys.argv[1])
 # Reads in Models from
 
 config = tree_mapper.tree_mapper()
 # Reads the Config setup for the classifier stages
 
-print(config)
+
+node = config['root']
+# Gets first node of the config file
+
+
+
 
 for a,i in enumerate(paths):
     pred = i.predict(features)
 
-    #print('Round ' + str(a) + ':')
-    #print(pred)
+    for z in node:
+        if pred[0] == z:
+            print('Classifier Output: ' + pred[0] + '    :    Tree Strucure: ' + z + '   --> ' + 'Model: ' + file_names[a])
+            node = config[z]
