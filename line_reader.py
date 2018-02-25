@@ -26,7 +26,6 @@ def line_read_model( files ):
     models = []
 
     imagePaths = [files + i for i in listdir(files) if isfile(join(files, i))]
-    print(imagePaths)
     models += [joblib.load(models) for models in imagePaths]
 
     return ( models , imagePaths )
