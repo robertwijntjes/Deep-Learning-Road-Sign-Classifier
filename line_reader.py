@@ -56,6 +56,10 @@ def file_parser( string_item , pos ):
     if not os.path.exists('./models'):
         os.makedirs('models')
 
+    if not os.path.exists('config.txt'):
+        config = open("config.txt","w")
+        config.write("@\n\n@\n\n/\n\n/\n\n\n\nBuild your tree architecure inbetween the two AT symbols using the format -->\n\nroot : A B\nA: C D\nB: E F\n\n--------------------------------------------\n\nList the Location of your Models and the correct order to be read in between the two SLASH symbols\nusing the format --->\n\n./folder/model_1\n./folder/model_2")
+
     for i in raw_line_:
         line_ += regex.sub('', str(i))
 
