@@ -8,10 +8,8 @@ def model_puller():
     check = False
 
     for x in f:
-        if x.strip() == '/':
+        if x.strip() == '?':
             check = not check
         elif check:
             mapper.append(x.strip())
     return ( mapper )
-
-print(model_puller())

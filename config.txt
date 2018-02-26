@@ -9,8 +9,27 @@ root: 1_all_sign 1_no_sign
 
 
 
-/
-xxxx
-yyyy
-/
+?
+./models/1_SNSDIR.pkl
+./models/2_SCYDIR.pkl
+?
+
+
+
+
+Build your tree architecure inbetween the two AT symbols using the format -->
+
+root : A B
+A: C D
+B: E F
+
+--------------------------------------------
+
+List the Location of your Models and the correct order to be read in between the two SLASH symbols
+using the format --->
+
+./folder/model_1
+./folder/model_2
+
+
 
