@@ -21,7 +21,11 @@ from sklearn.model_selection import learning_curve
 from sklearn.svm import SVC
 import line_reader
 import calculate_vector
+import os
+
 # Important Imports
+clear = lambda: os.system('cls')
+clear()
 
 imagePaths_t1 = []
 imagePaths_t2 = []
@@ -32,14 +36,17 @@ del sys.argv[0]
 # Dynamic model creation
 
 print('\n\n')
+if len(sys.argv) == 0:
+    print('Please Enter in a Directory File when running the Application.')
 # Features and Labels array
 for a,i in enumerate(sys.argv):
     print('Current Model: ' + str(i))
 
     try:
         file_ = open(str(i),'r+')
-    except WindowsError, e:
-        print "error"
+    except Exception ,e:
+            sys.exit(e)
+
 
     # Reads the files based on parameters given in command line
 

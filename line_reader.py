@@ -10,13 +10,15 @@ import pathlib
 def line_reader( files ):
     paths = []
     imagePaths = []
+    try:
+        for i,line in enumerate(files):
+            paths.append(line.strip('\n'))
 
-    for i,line in enumerate(files):
-        paths.append(line.strip('\n'))
 
-
-    for i in paths:
-            imagePaths += [ i + files for files in listdir(i) if isfile(join(i, files))]
+        for i in paths:
+                imagePaths += [ i + files for files in listdir(i) if isfile(join(i, files))]
+    except Exception,e:
+        sys.exit(e)
 
     return ( imagePaths )
 
@@ -24,9 +26,11 @@ def line_reader( files ):
 def line_read_model( files ):
     imagePaths = []
     models = []
-
-    imagePaths = [files + i for i in listdir(files) if isfile(join(files, i))]
-    models += [joblib.load(models) for models in imagePaths]
+    try:
+        imagePaths = [files + i for i in listdir(files) if isfile(join(files, i))]
+        models += [joblib.load(models) for models in imagePaths]
+    except Exception,e:
+        sys.exit("Wrong File type Present in ./Model/ folder!")
 
     return ( models , imagePaths )
 

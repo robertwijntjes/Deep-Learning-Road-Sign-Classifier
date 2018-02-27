@@ -21,9 +21,11 @@ file_names = []
 combine = {}
 
 #del sys.argv[0]
-
-f = easygui.fileopenbox()
-I = cv2.imread(f)
+try:
+    f = easygui.fileopenbox()
+    I = cv2.imread(f)
+except Exception,e:
+    sys.exit("Wrong File Type Opened")
 # Read in Image
 
 features = calculate_vector.calculate_single_path_v(I)
@@ -49,12 +51,14 @@ node = config['root']
 
 
 print('\n\n')
+try:
+    for a,i in enumerate(model_list):
 
-for a,i in enumerate(file_names):
+        pred = combine[file_names[a]].predict(features)
 
-    pred = combine[file_names[a]].predict(features)
-
-    for z in node:
-        if pred[0] == z:
-            print('Classifier Output: ' + pred[0] + '    :    Tree Strucure: ' + z + '   --> ' + 'Model: ' + file_names[a])
-            node = config[z]
+        for z in node:
+            if pred[0] == z:
+                print('Classifier Output: ' + pred[0] + '    :    Tree Strucure: ' + z + '   --> ' + 'Model: ' + file_names[a])
+                node = config[z]
+except Exception,e:
+    sys.exit("Warning: Model specification does not match Architecture specified.")

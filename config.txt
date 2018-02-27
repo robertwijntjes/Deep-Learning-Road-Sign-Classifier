@@ -11,7 +11,8 @@ root: 1_all_sign 1_no_sign
 
 ?
 ./models/1_SNSDIR.pkl
-./models/2_SCYDIR.pkl
+./models/1_SNSDIR.pkl
+./models/2_SNSDIR.pkl
 ?
 
 
