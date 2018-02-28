@@ -22,15 +22,20 @@ from sklearn.svm import SVC
 import line_reader
 import calculate_vector
 import os
+import time
+import meta_dump
+
 
 # Important Imports
 clear = lambda: os.system('cls')
 clear()
+start_time = time.time()
 
 imagePaths_t1 = []
 imagePaths_t2 = []
 model_data = []
 results = []
+speeds = []
 
 del sys.argv[0]
 # Dynamic model creation
@@ -41,13 +46,12 @@ if len(sys.argv) == 0:
 # Features and Labels array
 for a,i in enumerate(sys.argv):
     print('Current Model: ' + str(i))
+    m_starttime = time.time()
 
     try:
         file_ = open(str(i),'r+')
     except Exception ,e:
             sys.exit(e)
-
-
     # Reads the files based on parameters given in command line
 
     imagePaths = line_reader.line_reader(file_)
@@ -69,7 +73,7 @@ for a,i in enumerate(sys.argv):
     acc = model.score(tstFeat, tstLabels)
     # Score your Model on accuracy
 
-    results.append('MLP HSV Accuracy '+ str(i) + ': ' + str(100 * acc) + '%')
+    results.append('MLP HSV Accuracy '+ str(i) + ': ' + str(100 * acc) + '%' + '\nTotal Images: ' + str(len(imagePaths)))
     # Creates Results data
 
     x = line_reader.file_parser(str(i) , a)
@@ -77,7 +81,10 @@ for a,i in enumerate(sys.argv):
 
     joblib.dump(model, str(x) )
     # Creates Models for Classification
+    clean_time = "%.3f" % (time.time() - m_starttime)
+    results[a] += '\n' + str(clean_time)+'s' + '\n'
 
-for i in results:
-    print (i)
     # Shows Results
+exectime = "Execution Time: " + "%.3f" % (time.time() - start_time) + " seconds"
+print(exectime)
+meta_dump.builder_data(results,exectime)

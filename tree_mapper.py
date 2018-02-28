@@ -18,9 +18,11 @@ def tree_mapper():
             if children:
                 depth[parent] = max(depth.get(child,1) for child in children) + 1
     return ( dictionary )
+    # Builds the dictionary and depth dictionarys
 
 
 
 def read_node(line):
     parent, children = line.split(":")
     return parent, children.split()
+    # splits the lines for parents and children

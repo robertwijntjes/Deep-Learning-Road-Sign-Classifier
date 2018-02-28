@@ -36,6 +36,7 @@ def calculate_vectors( array_file ):
     except Exception,e:
         sys.exit("Invalid File Type Present in the Directory")
     return(features,labels)
+    # Reads in all the images using the image paths and transforms
 
 
 
@@ -53,3 +54,4 @@ def calculate_single_path_v( path ):
     except Exception,e:
         sys.exit("Invalid File Type Present in the Directory")
     return( features )
+    # Reads in a single image for the classification file

@@ -13,3 +13,4 @@ def model_puller():
         elif check:
             mapper.append(x.strip())
     return ( mapper )
+    # Parses by ? using the config file
