@@ -1,0 +1,3 @@
+Invalid File Type Present in the Directory
+..\..\..\modules\imgproc\src\histogram.cpp:1627: error: (-215) csz == 0 || csz == dims in function cv::calcHist
+

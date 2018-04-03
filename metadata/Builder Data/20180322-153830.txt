@@ -1,0 +1,5 @@
+MLP HSV Accuracy SNS_DIR.txt: 100.0%
+Total Images: 159
+3.457s
+
+Execution Time: 3.458 seconds

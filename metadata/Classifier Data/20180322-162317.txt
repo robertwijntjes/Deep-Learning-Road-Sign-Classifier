@@ -1,0 +1,2 @@
+Classifier Output: 1_all_sign    :    Tree Strucure: 1_all_sign   --> Model: ./models/1_SNSDIR.pkl
+Classifier Output: 2_mand_sign    :    Tree Strucure: 2_mand_sign   --> Model: ./models/2_SCYDIR.pkl

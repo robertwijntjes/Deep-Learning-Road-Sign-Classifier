@@ -1,0 +1,2 @@
+Invalid File Type Present in the Directory
+[Errno 0] Error

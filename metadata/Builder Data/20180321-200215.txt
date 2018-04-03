@@ -1,0 +1,13 @@
+MLP HSV Accuracy SNS_DIR.txt: 100.0%
+Total Images: 159
+7.441s
+
+MLP HSV Accuracy SCY_DIR.txt: 93.9393939394%
+Total Images: 130
+6.397s
+
+MLP HSV Accuracy SXS_DIR.txt: 62.4450307828%
+Total Images: 4545
+105.686s
+
+Execution Time: 119.524 seconds

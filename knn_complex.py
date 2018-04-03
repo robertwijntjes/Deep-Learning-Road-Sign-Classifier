@@ -51,7 +51,8 @@ for a,i in enumerate(sys.argv):
     try:
         file_ = open(str(i),'r+')
     except Exception ,e:
-            sys.exit(e)
+        meta_dump.error_logger(e)
+        sys.exit(e)
     # Reads the files based on parameters given in command line
 
     imagePaths = line_reader.line_reader(file_)
@@ -61,10 +62,10 @@ for a,i in enumerate(sys.argv):
     (features,labels) = calculate_vector.calculate_vectors(imagePaths)
     # Calculate Vectors from Paths
 
-    (trnFeat, tstFeat, trnLabels, tstLabels) = train_test_split(features, labels, test_size=0.25, random_state=42)
+    (trnFeat, tstFeat, trnLabels, tstLabels) = train_test_split(features, labels, test_size=0.25, random_state=419)
     # Splits into Training and Testing Sets
 
-    model = MLPClassifier (solver='lbfgs' , alpha=1e-5 , hidden_layer_sizes=(3, 10) , random_state = 1)
+    model = MLPClassifier (solver='lbfgs', learning_rate='adaptive',alpha=1e-5 , hidden_layer_sizes=(3, 10) , random_state = 1)
     # MLP Classifier for building Models
 
     model.fit(trnFeat,trnLabels)

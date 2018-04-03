@@ -4,6 +4,7 @@ from os.path import isfile, join
 from sklearn.externals import joblib
 import re
 import pathlib
+import meta_dump
 
 
 
@@ -14,10 +15,10 @@ def line_reader( files ):
         for i,line in enumerate(files):
             paths.append(line.strip('\n'))
 
-
         for i in paths:
                 imagePaths += [ i + files for files in listdir(i) if isfile(join(i, files))]
     except Exception,e:
+        meta_dump.error_logger(e)
         sys.exit(e)
 
     return ( imagePaths )
@@ -31,6 +32,7 @@ def line_read_model( files ):
         imagePaths = [files + i for i in listdir(files) if isfile(join(files, i))]
         models += [joblib.load(models) for models in imagePaths]
     except Exception,e:
+        meta_dump.error_logger(["Wrong File type Present in ./Model/ folder!", str(e)])
         sys.exit("Wrong File type Present in ./Model/ folder!")
 
     return ( models , imagePaths )
@@ -41,7 +43,7 @@ def line_read_model( files ):
 def file_parser( string_item , pos ):
     line_ = []
     x = []
-    subfolder = ['Builder Data','Classifier Data']
+    subfolder = ['Builder Data','Classifier Data','Error Logs']
     raw_line_ = os.path.splitext(string_item)[0]
     regex = re.compile('[^a-zA-Z]')
 
@@ -50,7 +52,7 @@ def file_parser( string_item , pos ):
 
     if not os.path.exists('config.txt'):
         config = open("config.txt","w")
-        config.write("@\n\n@\n\n/\n\n/\n\n\n\nBuild your tree architecure inbetween the two AT symbols using the format -->\n\nroot : A B\nA: C D\nB: E F\n\n--------------------------------------------\n\nList the Location of your Models and the correct order to be read in between the two SLASH symbols\nusing the format --->\n\n./folder/model_1\n./folder/model_2")
+        config.write("@\n\n@\n\n?\n\n?\n\n\n\nBuild your tree architecture inbetween the two AT symbols using the format -->\n\nroot : A B\nA: C D\nB: E F\n\n--------------------------------------------\n\nList the Location of your Models and the correct order to be read in between the two SLASH symbols\nusing the format --->\n\n./folder/model_1\n./folder/model_2")
 
     if not os.path.exists('./metadata'):
         for i in subfolder:

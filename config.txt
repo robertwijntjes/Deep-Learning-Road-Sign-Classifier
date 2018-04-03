@@ -3,16 +3,19 @@ root: 1_all_sign 1_no_sign
 1_no_sign:
 1_all_sign: 2_warn_sign 2_reg_sign 2_mand_sign
 2_warn_sign: 
-2_reg_sign: 
 2_mand_sign: 
+2_reg_sign: 50km 70km 80km
+50km:  
+70km: 
+80km: 
 @
 
 
 
 ?
 ./models/1_SNSDIR.pkl
-./models/1_SNSDIR.pkl
-./models/2_SNSDIR.pkl
+./models/2_SCYDIR.pkl
+./models/3_SXSDIR.pkl
 ?
 
 

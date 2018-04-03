@@ -1,0 +1,3 @@
+Invalid File Type Present in the Directory
+..\..\..\modules\imgproc\src\histogram.cpp:146: error: (-215) j < nimages in function cv::histPrepareImages
+

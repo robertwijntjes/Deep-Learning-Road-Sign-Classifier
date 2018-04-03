@@ -1,0 +1,2 @@
+Invalid File Type Present in the Directory
+global name 'frame' is not defined

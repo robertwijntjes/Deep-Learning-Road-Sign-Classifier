@@ -1,0 +1,3 @@
+Classifier Output: 1_all_sign    :    Tree Strucure: 1_all_sign   --> Model: ./models/1_SNSDIR.pkl
+Classifier Output: 2_reg_sign    :    Tree Strucure: 2_reg_sign   --> Model: ./models/2_SCYDIR.pkl
+Classifier Output: 50km    :    Tree Strucure: 50km   --> Model: ./models/3_SXSDIR.pkl
